@@ -1,0 +1,18 @@
+package P11ContainerWithMostWater;
+
+public class Solution2 {
+    public int maxArea(int[] height) {
+        // 官方题解：双指针法
+        // 6ms
+        int max=0, l=0, r=height.length - 1;
+        while (l < r) {
+            max = Math.max(max, (r - l) * Math.min(height[l], height[r]));
+            if (height[l] < height[r]) {
+                l++;
+            } else {
+                r--;
+            }
+        }
+        return max;
+    }
+}
